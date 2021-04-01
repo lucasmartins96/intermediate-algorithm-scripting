@@ -24,7 +24,7 @@ myDiffArray([1, "calf", 3, "piglet"], [1, "calf", 3, 4]);
 myDiffArray([], ["snuffleupagus", "cookie monster", "elmo"]);
 myDiffArray([1, "calf", 3, "piglet"], [7, "filly"]);
 /*
-Get a help > Get a hint <>
+Get a help > Get a hint <https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-diff-two-arrays/16008>
 */
 //Solution 1
 function diffArray1(arr1, arr2) {
