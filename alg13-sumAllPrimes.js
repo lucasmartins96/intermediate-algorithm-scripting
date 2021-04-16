@@ -9,10 +9,26 @@ A prime number is a whole number greater than 1 with exactly two divisors: 1 and
 Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
 */
 function mySumPrimes(num) {
-  return num;
+  /* source isPrime(): <https://stackoverflow.com/questions/11966520/how-to-find-prime-numbers-between-0-100?page=1&tab=votes#tab-top> */
+  const isPrime = (number) => {
+    if (number < 2) return false;
+    
+    const squareRootN = Math.floor(Math.sqrt(number));
+    for (let index = 2; index <= squareRootN; index += 1) {
+      if (number % index === 0) return false;
+    }
+    return true;
+  }
+
+  const primeNumbers = [];
+  for (let dividend = 0; dividend <= num; dividend += 1) {
+    if (isPrime(dividend)) primeNumbers.push(dividend);
+  }
+  return primeNumbers.reduce((acc, curr) => acc + curr);
 }
 
 mySumPrimes(10);
+
 assert.strictEqual(typeof mySumPrimes(10), 'number');
 assert.strictEqual(mySumPrimes(10), 17);
 assert.strictEqual(mySumPrimes(977), 73156);
