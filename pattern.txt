@@ -6,3 +6,5 @@ Source: <>
 /*
 Get a help > Get a hint <>
 */
+
+"fn: Adicionando o enunciado, o prototipo da funçao e os testes."
