@@ -48,5 +48,39 @@ assert.deepStrictEqual(
   myDropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}), [3, 9, 2]
 );
 /*
-Get a help > Get a hint <>
+Get a help > Get a hint <https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-drop-it/16010>
 */
+//Solution 1
+function dropElements1(arr, func) {
+  while (arr.length > 0 && !func(arr[0])) {
+    arr.shift();
+  }
+  return arr;
+}
+
+//Solution 2
+function dropElements2(arr, func) {
+  let sliceIndex = arr.findIndex(func);
+  return arr.slice(sliceIndex >= 0 ? sliceIndex : arr.length);
+}
+
+//Solution 3
+function dropElements3(arr, func) {
+  // drop them elements.
+  let originalLen = arr.length;
+  for (let i = 0; i < originalLen; i++) {
+    if (func(arr[0])) {
+      break;
+    } else {
+      arr.shift();
+    }
+  }
+  return arr;
+}
+
+//Solution 4
+function dropElements4(arr, func, i = 0) {
+  return i < arr.length && !func(arr[i])
+    ? (dropElements(arr.slice(i + 1), func, i))
+    : arr;
+}
