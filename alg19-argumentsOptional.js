@@ -17,16 +17,17 @@ sumTwoAnd(3) returns 5.
 If either argument isn't a valid number, return undefined.
 */
 function myAddTogether(...num1) {
-  const isNumber = num1.every((num) => typeof num === 'number');
-  if (!isNumber) {
+  const checkNumber = (n) => typeof n === 'number';
+
+  if (!num1.every((num) => checkNumber(num))) {
     return undefined;
   }
-  
+
   if (num1.length > 1) {
     return num1.reduce((acc, curr) => acc + curr);
   }
   return function (num2) {
-    return ((typeof num2 === 'number') ? num1[0] + num2 : undefined);
+    return (checkNumber(num2) ? num1[0] + num2 : undefined);
   }
 }
 
