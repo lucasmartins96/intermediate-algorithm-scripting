@@ -9,10 +9,20 @@ Given the array arr, iterate through and remove each element starting from the f
 Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
 */
 function myDropElements(arr, func) {
-  return arr;
+  let indexTrueCondition = arr.length; //3
+  return arr.reduce((arrReduce, curr, index)=> {
+    const acc = arrReduce;
+    if (indexTrueCondition > index) {
+      if (func(curr) ) {
+        acc.push(curr);
+        indexTrueCondition = index;
+      }
+    } else {
+      acc.push(curr);
+    }
+    return acc;
+  }, []);
 }
-
-myDropElements([1, 2, 3], function(n) {return n < 3; });
 
 assert.deepStrictEqual(
   myDropElements([1, 2, 3, 4], function(n) {return n >= 3;}), [3, 4]
