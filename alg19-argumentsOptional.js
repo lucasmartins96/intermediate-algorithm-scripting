@@ -40,7 +40,7 @@ assert.strictEqual(myAddTogether("http://bit.ly/IqT6zt"), undefined);
 assert.strictEqual(myAddTogether(2, "3"), undefined);
 assert.strictEqual(myAddTogether(2)([3]), undefined);
 /*
-Get a help > Get a hint <>
+Get a help > Get a hint <https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-arguments-optional/14271>
 */
 //Solution 1
 function addTogether1() {
