@@ -77,10 +77,13 @@ function binaryAgent2(str) {
 }
 
 //Solution 3
-function binaryAgent(str) {
+function binaryAgent3(str) {
   return String.fromCharCode(
     ...str.split(" ").map(function(char) {
       return parseInt(char, 2);
     })
   );
 }
+
+//Solution 4
+const binaryAgent4 = str => str.replace(/\d+./g, char => String.fromCharCode(`0b${char}`));
