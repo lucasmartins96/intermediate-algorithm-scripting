@@ -54,5 +54,33 @@ assert.strictEqual(bob.getFirstName(), 'Haskell');
 assert.strictEqual(bob.getLastName(), 'Curry');
 
 /*
-Get a help > Get a hint <>
+Get a help > Get a hint <https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-make-a-person/16020>
 */
+//Solution 1
+var Person = function(firstAndLast) {
+  var fullName = firstAndLast;
+
+  this.getFirstName = function() {
+    return fullName.split(" ")[0];
+  };
+
+  this.getLastName = function() {
+    return fullName.split(" ")[1];
+  };
+
+  this.getFullName = function() {
+    return fullName;
+  };
+
+  this.setFirstName = function(name) {
+    fullName = name + " " + fullName.split(" ")[1];
+  };
+
+  this.setLastName = function(name) {
+    fullName = fullName.split(" ")[0] + " " + name;
+  };
+
+  this.setFullName = function(name) {
+    fullName = name;
+  };
+};
