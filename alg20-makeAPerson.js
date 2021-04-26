@@ -18,10 +18,21 @@ Run the tests to see the expected output for each method. The methods that take 
 const Person = function(firstAndLast) {
   // Only change code below this line
   // Complete the method below and implement the others similarly
-  this.getFullName = function() {
-    return "";
-  };
-  return firstAndLast;
+  const [first, last] = firstAndLast.split(' ');
+  let firstName = first;
+  let lastName = last;
+  let fullName = firstAndLast;
+  this.getFirstName = () => firstName;
+  this.getLastName = () => lastName;
+  this.getFullName = () => `${firstName} ${lastName}`;
+  this.setFirstName = (first) => firstName = first;
+  this.setLastName = (last) => lastName = last;
+  this.setFullName = (firstAndLast) => {
+    const [first, last] = firstAndLast.split(' ');
+    fullName = firstAndLast;
+    this.setFirstName(first);
+    this.setLastName(last);
+  }
 };
 
 const bob = new Person('Bob Ross');
