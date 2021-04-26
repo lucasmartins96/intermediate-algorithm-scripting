@@ -15,8 +15,23 @@ The values should be rounded to the nearest whole number. The body being orbited
 The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.
 */
 function myOrbitalPeriod(arr) {
-  var GM = 398600.4418;
-  var earthRadius = 6367.4447;
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
+  const { pow, sqrt, round } = Math;
+
+  const calculateOrbitalPeriod = (avgAltObject) => {
+    const a = pow(earthRadius + avgAltObject, 3);
+    const orbitalPeriod = (2 * Math.PI) * sqrt(a / GM);
+    return round(orbitalPeriod);
+  }
+
+  arr.forEach((astronomicalObject) => {
+    const orbitalPeriod = calculateOrbitalPeriod(astronomicalObject['avgAlt']);
+    Object.assign(astronomicalObject, {
+      orbitalPeriod: orbitalPeriod
+    });
+    delete astronomicalObject['avgAlt'];
+  });
   return arr;
 }
 
